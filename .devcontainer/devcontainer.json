@@ -22,6 +22,8 @@
   ],
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
-  }
-
+  },
+    // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "pip install asyncpg"
+ 
 }
