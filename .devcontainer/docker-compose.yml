@@ -1,12 +1,10 @@
-version: '3.8'
-
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ../:/workspace:cached
+      - workspace_data:/workspace
     depends_on:
       - db
     network_mode: service:db
@@ -26,3 +24,4 @@ services:
 
 volumes:
   postgres_data:
+  workspace_data:
