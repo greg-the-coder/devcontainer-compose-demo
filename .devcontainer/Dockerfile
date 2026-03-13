@@ -3,7 +3,9 @@
 FROM python:3.12-bullseye
 
 RUN apt update -y
-
+RUN apt-get update && apt-get install -y nodejs npm && \
+    npm install -g @devcontainers/cli
+    
 # Nice welcome message
 RUN apt install fortune-mod cowsay lolcat -y
 ENV PATH="$PATH:/usr/games"
