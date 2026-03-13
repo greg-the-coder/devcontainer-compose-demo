@@ -6,9 +6,9 @@
     "customizations": {
         "vscode": {
             "extensions": [
-				"ms-python.python",
-				"ms-python.vscode-pylance"
-			],
+                "ms-python.python",
+                "ms-python.vscode-pylance"
+            ],
             "settings": {
                 "terminal.integrated.defaultProfile.linux": "zsh",
                 "terminal.integrated.fontFamily": "'Hack Nerd Font Mono'",
@@ -17,13 +17,11 @@
             }
         }
     },
-  "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-  ],
-  "features": {
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
-  },
-    // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "pip install asyncpg"
- 
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "postCreateCommand": "pip install asyncpg && if [ -z \"$(ls -A /workspace)\" ]; then git clone https://github.com/greg-the-coder/devcontainer-compose-demo.git /workspace/tmp && mv /workspace/tmp/* /workspace/tmp/.* /workspace/ 2>/dev/null; rm -rf /workspace/tmp; fi"
 }
